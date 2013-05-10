@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import util.CommandMapping;
+
 /**
  * Servlet implementation class MainServlet
  */
@@ -28,6 +30,7 @@ public class MainServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		super.init();
 		String path = getServletContext().getRealPath(getInitParameter("commandPath"));
+		CommandMapping.mapping(path);
 	}
 
 
@@ -44,7 +47,13 @@ public class MainServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=utf-8");
+		String action = request.getParameter("action");
+		String nextPage = CommandMapping.getCommand(action).execute(request, response);
+		request.getRequestDispatcher(nextPage).forward(request, response);
+		
+		
 	}
 
 }

@@ -2,7 +2,7 @@ package dto;
 
 import java.io.Serializable;
 
-public class evaluationStar implements Serializable {
+public class EvaluationStar implements Serializable {
 	private int starCode;
 	private String eMail;
 	private int evaluationCode;
@@ -24,11 +24,11 @@ public class evaluationStar implements Serializable {
 	public void setEvaluationCode(int evaluationCode) {
 		this.evaluationCode = evaluationCode;
 	}
-	public evaluationStar() {
+	public EvaluationStar() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public evaluationStar(int starCode, String eMail, int evaluationCode) {
+	public EvaluationStar(int starCode, String eMail, int evaluationCode) {
 		super();
 		this.starCode = starCode;
 		this.eMail = eMail;
@@ -51,7 +51,7 @@ public class evaluationStar implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		evaluationStar other = (evaluationStar) obj;
+		EvaluationStar other = (EvaluationStar) obj;
 		if (eMail == null) {
 			if (other.eMail != null)
 				return false;

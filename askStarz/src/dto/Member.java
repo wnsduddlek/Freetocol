@@ -199,6 +199,11 @@ public class Member implements Serializable {
 		this.schoolName = schoolName;
 		this.point = point;
 	}
+	public Member(String eMail, String password) {
+		super();
+		this.eMail = eMail;
+		this.password = password;
+	}
 	
 	
 	

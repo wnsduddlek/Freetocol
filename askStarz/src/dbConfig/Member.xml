@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Member">
+
+  <!-- Use type aliases to avoid typing the full classname every time. -->
+  <typeAlias alias="Member" type="dto.Member"/>
+
+  <!-- Result maps describe the mapping between the columns returned
+       from a query, and the class properties.  A result map isn't
+       necessary if the columns (or aliases) match to the properties 
+       exactly. -->
+  <resultMap id="MemberResult" class="Member">
+    <result property="eMail" column="e_mail"/>
+    <result property="schoolName" column="school_name"/>
+    <result property="schoolSeq" column="school_seq"/>
+    <result property="password" column="password"/>
+    <result property="nickName" column="nick_name"/>
+    <result property="majorName" column="major_name"/>
+    <result property="majorSeq" column="major_seq"/>
+    <result property="memberCode" column="member_code"/>
+    <result property="studentNumber" column="student_number"/>
+    <result property="point" column="point"/>
+    <result property="personaconCode" column="personacon_code"/>
+  </resultMap>
+  
+  <resultMap id="LoginResult" class="Member">
+    <result property="eMail" column="e_mail"/>
+    <result property="password" column="password"/>
+    <result property="nickName" column="nick_name"/>
+    <result property="memberCode" column="member_code"/>
+  </resultMap>
+
+  <!-- Select with no parameters using the result map for Account class. -->
+  <select id="loginCheck" parameterClass="Member" resultClass="String">
+    	SELECT e_mail
+    	FROM login 
+    	WHERE e_mail = #eMail# AND password=#password#
+  </select>
+  
+   <select id="sessionInfo" parameterClass="String" resultMap="LoginResult">
+    	SELECT e_mail, password, nick_name, member_code
+    	FROM login 
+    	WHERE e_mail = #eMail#
+  </select>
+    
+</sqlMap>
