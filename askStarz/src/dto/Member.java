@@ -187,13 +187,17 @@ public class Member implements Serializable {
 		this.point = point;
 		this.personaconCode = personaconCode;
 	}
-	public Member(String eMail, String password, String nickName, int memberCode) {
+
+	public Member(String eMail, String password, String nickName,
+			int memberCode, int point) {
 		super();
 		this.eMail = eMail;
 		this.password = password;
 		this.nickName = nickName;
 		this.memberCode = memberCode;
+		this.point = point;
 	}
+	
 	public Member(String schoolName, int point) {
 		super();
 		this.schoolName = schoolName;

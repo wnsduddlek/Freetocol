@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -84,73 +85,18 @@
     </form>
 <div class="tabbable" style="margin-bottom: 18px;">
         <ul class="nav nav-pills">
-          <li class="active"><a href="#tab1" data-toggle="tab">순위1</a></li>
-          <li><a href="#tab2" data-toggle="tab">순위2</a></li>
-          <li><a href="#tab3" data-toggle="tab">순위3</a></li>
-          <li><a href="#tab4" data-toggle="tab">순위3</a></li>
-          <li><a href="#tab5" data-toggle="tab">순위3</a></li>
+          <li class="active"><a href="#tab1" data-toggle="tab">Great</a></li>
+          <li><a href="#tab2" data-toggle="tab">Hot</a></li>
+          <li><a href="#tab3" data-toggle="tab">Week</a></li>
+          <li><a href="#tab4" data-toggle="tab">Understand</a></li>
+          <li><a href="#tab5" data-toggle="tab">Happy</a></li>
         </ul>
         <div class="tab-content" style="padding-bottom: 9px; border-bottom: 1px solid #ddd;">
           <div class="tab-pane active" id="tab1">
-			<div class="row">
-         <div class="metro span5">
-            <div id="tile-listview-demo" class="tile-listviewitem-container">
-   
-               <div class="row-fluid">
-                  <div class="tile-listviewitem">
-                     <div class="span3">
-                        <img src="img/one.png" />
-                     </div>
-                     <div class="span8">
-                        <div class="detail">
-                           <div class="title">1위</div>
-                           <div class="subtitle">1위 교수</div>
-                           <p>몇 점 몇 점</p>
-                        </div>
-                     </div>
-					 <div class="span1">
-						<div style="float: right;" class="overall">총합점수</div>
-					</div>
-                  </div>
-               </div>
-   
-               <div class="row-fluid">
-                  <div class="tile-listviewitem">
-                     <div class="span3">
-                        <img src="img/two.png" />
-                     </div>
-                     <div class="span9">
-                        <div class="detail">
-                           <div class="title">2위</div>
-                           <div class="subtitle">2위 교수</div>
-                           <p>몇 점 몇 점</p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-
-			   <div class="row-fluid">
-                  <div class="tile-listviewitem">
-                     <div class="span3">
-                        <img src="img/three.png" />
-                     </div>
-                     <div class="span9">
-                        <div class="detail">
-                           <div class="title">3위</div>
-                           <div class="subtitle">3위 교수</div>
-                           <p>몇 점 몇 점</p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-
-            </div>
-         </div>
-
-          </div>
+			<jsp:include page="listByGreat.jsp" flush="false"/>
 		  </div>
           <div class="tab-pane" id="tab2">
-            <p>김준영2.</p>
+           	<jsp:include page="listByHot.jsp" flush="false"/>
           </div>
           <div class="tab-pane" id="tab3">
             <p>김준영3.</p>

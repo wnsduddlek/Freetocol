@@ -25,7 +25,7 @@ public class LoginCommand extends Command {
 		String password = request.getParameter("password");
 		
 		HttpSession session = request.getSession(true);
-				
+		
 		//eMail주소가 존재하는지?
 		try {
 			boolean exist = new StarService().loginCheck(new Member(eMail, password));
@@ -37,6 +37,9 @@ public class LoginCommand extends Command {
 				if(which.equals("web")){
 					nextPage = "loadingWeb.jsp";
 				}
+			}
+			else{
+				nextPage = "noValidation.jsp";
 			}
 			
 			

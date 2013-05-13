@@ -32,6 +32,7 @@
     <result property="password" column="password"/>
     <result property="nickName" column="nick_name"/>
     <result property="memberCode" column="member_code"/>
+    <result property="point" column="point"/>
   </resultMap>
 
   <!-- Select with no parameters using the result map for Account class. -->
@@ -42,7 +43,7 @@
   </select>
   
    <select id="sessionInfo" parameterClass="String" resultMap="LoginResult">
-    	SELECT e_mail, password, nick_name, member_code
+    	SELECT e_mail, password, nick_name, member_code, point
     	FROM login 
     	WHERE e_mail = #eMail#
   </select>
