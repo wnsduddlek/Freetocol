@@ -84,6 +84,27 @@ public class Professor implements Serializable {
 		this.profileImage = profileImage;
 		this.approval = approval;
 	}
+	
+
+	public Professor(String professorName, String schoolName, String schoolSeq,
+			String eMail, String majorName, String majorSeq,
+			String profileImage, int approval) {
+		super();
+		this.professorName = professorName;
+		this.schoolName = schoolName;
+		this.schoolSeq = schoolSeq;
+		this.eMail = eMail;
+		this.majorName = majorName;
+		this.majorSeq = majorSeq;
+		this.profileImage = profileImage;
+		this.approval = approval;
+	}
+	public Professor(String professorName, String schoolSeq, String majorSeq) {
+		super();
+		this.professorName = professorName;
+		this.schoolSeq = schoolSeq;
+		this.majorSeq = majorSeq;
+	}
 	@Override
 	public String toString() {
 		return "Professor [professorCode=" + professorCode + ", professorName="

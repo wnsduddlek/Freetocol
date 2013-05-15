@@ -10,7 +10,7 @@
                <div class="row-fluid">
                   <div class="tile-listviewitem">
                      <div class="span3">
-                        	<a href="professors?action=detail&professorCode=${evaluationEach.professorCode}&which=web">
+                        	<a href="askstarz?action=detail&professorCode=${evaluationEach.professorCode}&which=web">
 								<c:if test="${status.index == '0'}">
 								<img src="./img/one.png" width="100" height="100"/>
 								</c:if>

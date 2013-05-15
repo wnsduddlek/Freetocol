@@ -5,10 +5,13 @@ import java.util.ArrayList;
 import dao.EvaluationEachDAO;
 import dao.LoginDAO;
 import dao.MemberDAO;
+import dao.ProfessorDAO;
 import dto.EvaluationEach;
 import dto.Member;
+import dto.Professor;
 import exception.EvaluationEachException;
 import exception.MemberException;
+import exception.ProfessorException;
 
 public class StarService implements StarServiceIF {
 
@@ -134,6 +137,20 @@ public class StarService implements StarServiceIF {
 	@Override
 	public void memberInsert(Member member) throws MemberException {
 		MemberDAO.getInstance().memberInsert(member);
+	}
+
+	@Override
+	public boolean professorCheck(Professor professorInfo)
+			throws ProfessorException {
+		boolean flag = false;
+		flag = ProfessorDAO.getInstance().professorCheck(professorInfo);
+		return flag;
+	}
+
+	@Override
+	public void professorInsert(Professor professor) throws ProfessorException {
+		
+		ProfessorDAO.getInstance().professorInsert(professor);
 	}
 
 }

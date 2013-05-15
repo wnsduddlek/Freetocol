@@ -4,8 +4,10 @@ import java.util.ArrayList;
 
 import dto.EvaluationEach;
 import dto.Member;
+import dto.Professor;
 import exception.EvaluationEachException;
 import exception.MemberException;
+import exception.ProfessorException;
 
 public interface StarServiceIF {
 	public boolean loginCheck(Member userInfo) throws MemberException;
@@ -21,4 +23,6 @@ public interface StarServiceIF {
 	public ArrayList<EvaluationEach> getListByUnderstandSchool(String schoolCode) throws EvaluationEachException;
 	public ArrayList<EvaluationEach> getListByHappySchool(String schoolCode) throws EvaluationEachException;
 	public void memberInsert(Member member) throws MemberException;
+	public boolean professorCheck(Professor professorInfo) throws ProfessorException;
+	public void professorInsert(Professor professor) throws ProfessorException;
 }
