@@ -46,12 +46,16 @@ public class MainCommand extends Command {
 			listByWeek = new StarService().getListByWeekSchool(schoolSeq);
 			listByUnderstand = new StarService().getListByUnderstandSchool(schoolSeq);
 			listByHappy = new StarService().getListByHappySchool(schoolSeq);
+			if(listByGreat.size() == 0){
+				nextPage = "noSearchmainWeb.jsp";
+			}
 			}
 			
+			System.out.println(listByGreat);
 			
+			System.out.println(nextPage);
 			
-			
-			if(which.equals("web")){
+			if(listByGreat.size() !=0 && which.equals("web")){
 				request.setAttribute("listByGreat", listByGreat);
 				request.setAttribute("listByHot", listByHot);
 				request.setAttribute("listByWeek", listByWeek);
@@ -65,7 +69,7 @@ public class MainCommand extends Command {
 			e.printStackTrace();
 		}
 		
-	
+		System.out.println(nextPage);
 		
 		return nextPage;
 	}
