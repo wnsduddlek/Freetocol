@@ -21,16 +21,44 @@
     <result property="weekScore" column="week_score"/>
     <result property="understandScore" column="understand_score"/>
     <result property="happyScore" column="happy_score"/>
+    <result property="schoolSeq" column="school_seq"/>
+    <result property="majorSeq" column="major_seq"/>
     <result property="schoolName" column="school_name"/>
     <result property="majorName" column="major_name"/>
+    
   </resultMap>
 
   <!-- Select with no parameters using the result map for Account class. -->
   <select id="getListByGreat" resultMap="EvaluationEachResult">
     	SELECT * FROM evaluation_each ORDER BY great_score DESC
   </select>
-    <select id="getListByHot" resultMap="EvaluationEachResult">
+  <select id="getListByHot" resultMap="EvaluationEachResult">
     	SELECT * FROM evaluation_each ORDER BY hot_score DESC
   </select>
-
+  <select id="getListByWeek" resultMap="EvaluationEachResult">
+    	SELECT * FROM evaluation_each ORDER BY week_score DESC
+  </select>
+  <select id="getListByUnderstand" resultMap="EvaluationEachResult">
+    	SELECT * FROM evaluation_each ORDER BY understand_score DESC
+  </select>
+  <select id="getListByHappy" resultMap="EvaluationEachResult">
+    	SELECT * FROM evaluation_each ORDER BY happy_score DESC
+  </select>
+  <!-- 여기서 부터는 학교검색정보에 따른 것들 -->
+  <select id="getListByGreatSchool" parameterClass="String" resultMap="EvaluationEachResult">
+    	SELECT * FROM evaluation_each WHERE school_seq = #schoolSeq# ORDER BY great_score DESC
+  </select>
+  <select id="getListByHotSchool" parameterClass="String" resultMap="EvaluationEachResult">
+    	SELECT * FROM evaluation_each WHERE school_seq = #schoolSeq# ORDER BY hot_score DESC
+  </select>
+  <select id="getListByWeekSchool" parameterClass="String" resultMap="EvaluationEachResult">
+    	SELECT * FROM evaluation_each WHERE school_seq = #schoolSeq# ORDER BY week_score DESC
+  </select>
+  <select id="getListByUnderstandSchool" parameterClass="String" resultMap="EvaluationEachResult">
+    	SELECT * FROM evaluation_each WHERE school_seq = #schoolSeq# ORDER BY understand_score DESC
+  </select>
+  <select id="getListByHappySchool" parameterClass="String" resultMap="EvaluationEachResult">
+    	SELECT * FROM evaluation_each WHERE school_seq = #schoolSeq# ORDER BY happy_score DESC
+  </select>
+    
 </sqlMap>

@@ -51,4 +51,89 @@ public class StarService implements StarServiceIF {
 		return getListHot;
 	}
 
+	@Override
+	public ArrayList<EvaluationEach> getListByWeek()
+			throws EvaluationEachException {
+		ArrayList<EvaluationEach> getListWeek = null;
+		
+		getListWeek = EvaluationEachDAO.getInstance().getListByWeek();
+		
+		return getListWeek;
+	}
+
+	@Override
+	public ArrayList<EvaluationEach> getListByUnderstand()
+			throws EvaluationEachException {
+		ArrayList<EvaluationEach> getListUnderstand = null;
+		
+		getListUnderstand = EvaluationEachDAO.getInstance().getListByUnderstand();
+		
+		return getListUnderstand;
+	}
+
+	@Override
+	public ArrayList<EvaluationEach> getListByHappy()
+			throws EvaluationEachException {
+		ArrayList<EvaluationEach> getListHappy = null;
+		
+		getListHappy = EvaluationEachDAO.getInstance().getListByHappy();
+		
+		return getListHappy;
+	}
+
+	@Override
+	public ArrayList<EvaluationEach> getListByGreatSchool(String schoolCode)
+			throws EvaluationEachException {
+		ArrayList<EvaluationEach> getListGreatSchool = null;
+		
+		getListGreatSchool = EvaluationEachDAO.getInstance().getListByGreatSchool(schoolCode);
+		
+		return getListGreatSchool;
+	}
+
+	@Override
+	public ArrayList<EvaluationEach> getListByHotSchool(String schoolCode)
+			throws EvaluationEachException {
+		ArrayList<EvaluationEach> getListByHotSchool = null;
+		
+		getListByHotSchool = EvaluationEachDAO.getInstance().getListByHotSchool(schoolCode);
+		
+		return getListByHotSchool;
+	}
+
+	@Override
+	public ArrayList<EvaluationEach> getListByWeekSchool(String schoolCode)
+			throws EvaluationEachException {
+		ArrayList<EvaluationEach> getListByWeekSchool = null;
+		
+		getListByWeekSchool = EvaluationEachDAO.getInstance().getListByWeekSchool(schoolCode);
+		
+		return getListByWeekSchool;
+	}
+
+	@Override
+	public ArrayList<EvaluationEach> getListByUnderstandSchool(String schoolCode)
+			throws EvaluationEachException {
+		ArrayList<EvaluationEach> getListByUnderstandSchool = null;
+		
+		getListByUnderstandSchool = EvaluationEachDAO.getInstance().getListByUnderstandSchool(schoolCode);
+		
+		return getListByUnderstandSchool;
+	}
+
+	@Override
+	public ArrayList<EvaluationEach> getListByHappySchool(String schoolCode)
+			throws EvaluationEachException {
+		ArrayList<EvaluationEach> getListByHappySchool = null;
+		
+		getListByHappySchool = EvaluationEachDAO.getInstance().getListByHappySchool(schoolCode);
+		
+		return getListByHappySchool;
+	}
+
+	@Override
+	public void memberInsert(Member member) throws MemberException {
+		MemberDAO.getInstance().memberInsert(member);
+	}
+
 }

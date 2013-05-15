@@ -47,5 +47,11 @@
     	FROM login 
     	WHERE e_mail = #eMail#
   </select>
-    
+  <insert id="memberInsert" parameterClass="Member">
+  		INSERT INTO member(e_mail, school_name, school_seq, password, nick_name, major_name, major_seq, 
+  		member_code, student_number, point, personacon_code, register_time)
+    	VALUES(#eMail#, #schoolName#, #schoolSeq#, #password#, #nickName#, #majorName#, #majorSeq#,
+    	 #memberCode#, #studentNumber#, #point#, #personaconCode#,
+    	SYS_DATETIME) 
+  </insert>  
 </sqlMap>

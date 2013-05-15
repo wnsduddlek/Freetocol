@@ -5,19 +5,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <title>별들에게 물어봐</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- 여기서부터는 jquery입니다 -->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-	<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
-
-    
-    
-    
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	
+	
     <!-- Le styles -->
     <link rel="stylesheet" type="text/css" href="css/metro-bootstrap_alt.css">
     <style>
@@ -58,31 +56,9 @@
 		<jsp:include page="headerLogin.jsp" flush="false"/>
  	</c:if>
  	</div>
-	<div class="modal hide" id="signup">
-	  <div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal">x</button>
-		<h3><i class="icon-pencil"></i> 회원가입</h3>
-	  </div>
-	  <div class="modal-body">
-		<form method="post" action='' name="login_form">
-		  <p>이메일<input type="text" class="span3" name="eid" id="email" placeholder="김준영@남자.com"></p>
-		  <p>비밀번호<input type="password" class="span3" name="passwd" placeholder="8자 이상"></p>
-		  <p><button type="submit" class="btn btn-primary">가입</button>
-		  <button type="button" class="btn btn-info" data-dismiss="modal">취소</button>
-		  </p>
-		</form>
-	  </div>
-	</div>
+	<jsp:include page="signUp.jsp" flush="false"/>
 <div class="container-narrow">
-    <form class="form-search">
-      <div class="btn-group" data-toggle="buttons-radio">
-        <button type="button" class="btn active">교수별</button>
-        <button type="button" class="btn">전공별</button>
-        <button type="button" class="btn">학교별</button>
-      </div>
-      <input type="text" class="input-medium search-query">
-      <button type="submit" class="btn btn-success">검색</button>
-    </form>
+    	<jsp:include page="search.jsp" flush="false"/>
 <div class="tabbable" style="margin-bottom: 18px;">
         <ul class="nav nav-pills">
           <li class="active"><a href="#tab1" data-toggle="tab">Great</a></li>
@@ -99,18 +75,17 @@
            	<jsp:include page="listByHot.jsp" flush="false"/>
           </div>
           <div class="tab-pane" id="tab3">
-            <p>김준영3.</p>
+            <jsp:include page="listByWeek.jsp" flush="false"/>
           </div>
           <div class="tab-pane" id="tab4">
-            <p>김준영4.</p>
+            <jsp:include page="listByUnderstand.jsp" flush="false"/>
           </div>
           <div class="tab-pane" id="tab5">
-            <p>김준영5.</p>
+            <jsp:include page="listByHappy.jsp" flush="false"/>
           </div>
         </div>
       </div> 
 	  </div>
-    <script type="text/javascript" src="docs/jquery-1.8.0.js"></script>
     <script type="text/javascript" src="docs/bootstrap-tooltip.js"></script>
     <script type="text/javascript" src="docs/bootstrap-alert.js"></script>
     <script type="text/javascript" src="docs/bootstrap-button.js"></script>

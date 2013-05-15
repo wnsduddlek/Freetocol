@@ -33,4 +33,15 @@ public class MemberDAO {
 		
 		return sessionInfo;
 	}
+	
+	public void memberInsert(Member member){
+		
+		try {
+			sqlMapper.insert("memberInsert", member);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 }
