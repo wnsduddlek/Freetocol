@@ -37,6 +37,24 @@ public class Evaluation implements Serializable {
 		this.profileImageFile = profileImageFile;
 		this.trackback = trackback;
 	}
+	
+	
+	public Evaluation(int professorCode, int greatScore, int hotScore,
+			int weekScore, int understandScore, int happyScore, String comment,
+			int guestCode, String eMail, String profileImageFile, int trackback) {
+		super();
+		this.professorCode = professorCode;
+		this.greatScore = greatScore;
+		this.hotScore = hotScore;
+		this.weekScore = weekScore;
+		this.understandScore = understandScore;
+		this.happyScore = happyScore;
+		this.comment = comment;
+		this.guestCode = guestCode;
+		this.eMail = eMail;
+		this.profileImageFile = profileImageFile;
+		this.trackback = trackback;
+	}
 	public int getEvaluationCode() {
 		return evaluationCode;
 	}
