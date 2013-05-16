@@ -2,10 +2,12 @@ package service;
 
 import java.util.ArrayList;
 
+import dto.Evaluation;
 import dto.EvaluationEach;
 import dto.Member;
 import dto.Professor;
 import exception.EvaluationEachException;
+import exception.EvaluationException;
 import exception.MemberException;
 import exception.ProfessorException;
 
@@ -25,4 +27,6 @@ public interface StarServiceIF {
 	public void memberInsert(Member member) throws MemberException;
 	public boolean professorCheck(Professor professorInfo) throws ProfessorException;
 	public void professorInsert(Professor professor) throws ProfessorException;
+	public void evaluationInsert(Evaluation evaluation) throws EvaluationException;
+	
 }
