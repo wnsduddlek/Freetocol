@@ -2,14 +2,17 @@ package service;
 
 import java.util.ArrayList;
 
+import dao.EvaluationDAO;
 import dao.EvaluationEachDAO;
 import dao.LoginDAO;
 import dao.MemberDAO;
 import dao.ProfessorDAO;
+import dto.Evaluation;
 import dto.EvaluationEach;
 import dto.Member;
 import dto.Professor;
 import exception.EvaluationEachException;
+import exception.EvaluationException;
 import exception.MemberException;
 import exception.ProfessorException;
 
@@ -151,6 +154,12 @@ public class StarService implements StarServiceIF {
 	public void professorInsert(Professor professor) throws ProfessorException {
 		
 		ProfessorDAO.getInstance().professorInsert(professor);
+	}
+
+	@Override
+	public void evaluationInsert(Evaluation evaluation)
+			throws EvaluationException {
+		EvaluationDAO.getInstance().evaluationInsert(evaluation);
 	}
 
 }
