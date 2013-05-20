@@ -8,10 +8,18 @@ public class Professor implements Serializable {
 	private String schoolName;
 	private String schoolSeq;
 	private String eMail;
+	private String registerTime;
 	private String majorName;
 	private String majorSeq;
 	private String profileImage;
 	private int approval;
+	
+	public String getRegisterTime() {
+		return registerTime;
+	}
+	public void setRegisterTime(String registerTime) {
+		this.registerTime = registerTime;
+	}
 	public int getProfessorCode() {
 		return professorCode;
 	}
@@ -70,6 +78,24 @@ public class Professor implements Serializable {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+	public Professor(int professorCode, String professorName,
+			String schoolName, String schoolSeq, String eMail,
+			String registerTime, String majorName, String majorSeq,
+			String profileImage, int approval) {
+		super();
+		this.professorCode = professorCode;
+		this.professorName = professorName;
+		this.schoolName = schoolName;
+		this.schoolSeq = schoolSeq;
+		this.eMail = eMail;
+		this.registerTime = registerTime;
+		this.majorName = majorName;
+		this.majorSeq = majorSeq;
+		this.profileImage = profileImage;
+		this.approval = approval;
+	}
 	public Professor(int professorCode, String professorName,
 			String schoolName, String schoolSeq, String eMail,
 			String majorName, String majorSeq, String profileImage, int approval) {
@@ -106,14 +132,6 @@ public class Professor implements Serializable {
 		this.majorSeq = majorSeq;
 	}
 	@Override
-	public String toString() {
-		return "Professor [professorCode=" + professorCode + ", professorName="
-				+ professorName + ", schoolName=" + schoolName + ", schoolSeq="
-				+ schoolSeq + ", eMail=" + eMail + ", majorName=" + majorName
-				+ ", majorSeq=" + majorSeq + ", profileImage=" + profileImage
-				+ ", approval=" + approval + "]";
-	}
-	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -128,6 +146,8 @@ public class Professor implements Serializable {
 				+ ((professorName == null) ? 0 : professorName.hashCode());
 		result = prime * result
 				+ ((profileImage == null) ? 0 : profileImage.hashCode());
+		result = prime * result
+				+ ((registerTime == null) ? 0 : registerTime.hashCode());
 		result = prime * result
 				+ ((schoolName == null) ? 0 : schoolName.hashCode());
 		result = prime * result
@@ -172,6 +192,11 @@ public class Professor implements Serializable {
 				return false;
 		} else if (!profileImage.equals(other.profileImage))
 			return false;
+		if (registerTime == null) {
+			if (other.registerTime != null)
+				return false;
+		} else if (!registerTime.equals(other.registerTime))
+			return false;
 		if (schoolName == null) {
 			if (other.schoolName != null)
 				return false;
@@ -183,6 +208,15 @@ public class Professor implements Serializable {
 		} else if (!schoolSeq.equals(other.schoolSeq))
 			return false;
 		return true;
+	}
+	@Override
+	public String toString() {
+		return "Professor [professorCode=" + professorCode + ", professorName="
+				+ professorName + ", schoolName=" + schoolName + ", schoolSeq="
+				+ schoolSeq + ", eMail=" + eMail + ", registerTime="
+				+ registerTime + ", majorName=" + majorName + ", majorSeq="
+				+ majorSeq + ", profileImage=" + profileImage + ", approval="
+				+ approval + "]";
 	}
 	
 	

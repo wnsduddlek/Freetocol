@@ -23,6 +23,7 @@
   <sqlMap resource="dbConfig/Member.xml"/>
   <sqlMap resource="dbConfig/Professor.xml"/>
   <sqlMap resource="dbConfig/EvaluationEach.xml"/>
+  <sqlMap resource="dbConfig/Evaluation.xml"/>
   <!-- List more here...
   <sqlMap resource="com/mydomain/data/Order.xml"/>
   <sqlMap resource="com/mydomain/data/Documents.xml"/>

@@ -36,13 +36,40 @@
                         </div>
                      </div>
 					 <div class="span1">
+						<div style="float: right;" class="overall">
+						<fmt:formatNumber value="${evaluationEach.greatScore/100*(4.5)}" type="number" var="numberType"/>
+											점수 ${numberType}/4.5</div>
+					</div>
+                  </div>
+               </div>
+           </c:forEach>    
+               <c:forEach items="${requestScope.listByGreat}" var="evaluationEach" begin="3" varStatus ="status">
+		
+               <div class="row-fluid">
+                  <div class="tile-listviewitem">
+                     <div class="span3">
+                        	
+                     </div>
+                     <div class="span8">
+                        <div class="detail">
+                           <div class="title"><a href="askstarz?action=detail&professorCode=${evaluationEach.professorCode}&which=web">${evaluationEach.professorName}</a></div>
+                           <div class="subtitle">${evaluationEach.schoolName}  ${evaluationEach.majorName}</div>
+                           <p> 
+                           Hot : ${evaluationEach.hotScore}
+                           Week : ${evaluationEach.weekScore}
+                           Understand : ${evaluationEach.understandScore}
+                           Happy : ${evaluationEach.happyScore}
+                           
+                           </p>
+                        </div>
+                     </div>
+					 <div class="span1">
 						<div style="float: right;" class="overall"><fmt:formatNumber value="${evaluationEach.greatScore/100*(4.5)}" type="number" var="numberType"/>
 											점수 ${numberType}/4.5</div>
 					</div>
                   </div>
                </div>
            </c:forEach>    
-               
             </div>
          </div>
 

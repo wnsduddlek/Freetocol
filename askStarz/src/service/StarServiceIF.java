@@ -1,6 +1,7 @@
 package service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import dto.Evaluation;
 import dto.EvaluationEach;
@@ -28,5 +29,14 @@ public interface StarServiceIF {
 	public boolean professorCheck(Professor professorInfo) throws ProfessorException;
 	public void professorInsert(Professor professor) throws ProfessorException;
 	public void evaluationInsert(Evaluation evaluation) throws EvaluationException;
+	public EvaluationEach getProfessorByCode(int professorCode) throws EvaluationEachException;
+	public ArrayList<Evaluation> evaluationPerProfessor(int professorCode) throws EvaluationException;
+	public ArrayList<Professor> professorApproval() throws ProfessorException;
+	public void professorApprovalUpdate(int professorCode) throws ProfessorException;
+	public void evaluationAdminInsert(int professorCode) throws EvaluationException;
+	public ArrayList<Member> memberListAdmin() throws MemberException;
+	public void memberUpdate(String check, HashMap<String, Object> memberList) throws MemberException;
+	public ArrayList<Professor> professorListAdmin() throws ProfessorException;
+	public void professorUpdate(Professor professor) throws ProfessorException;	
 	
 }

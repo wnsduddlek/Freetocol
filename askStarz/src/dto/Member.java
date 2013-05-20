@@ -3,6 +3,7 @@ package dto;
 import java.io.Serializable;
 
 public class Member implements Serializable {
+	private int memberNo;
 	private String eMail;
 	private String schoolName;
 	private String schoolSeq;
@@ -14,10 +15,20 @@ public class Member implements Serializable {
 	private int studentNumber;
 	private int point;
 	private int personaconCode;
+	private String registerTime;
 	public Member() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	public int getMemberNo() {
+		return memberNo;
+	}
+
+	public void setMemberNo(int memberNo) {
+		this.memberNo = memberNo;
+	}
+
 	public String geteMail() {
 		return eMail;
 	}
@@ -84,15 +95,14 @@ public class Member implements Serializable {
 	public void setPersonaconCode(int personaconCode) {
 		this.personaconCode = personaconCode;
 	}
-	@Override
-	public String toString() {
-		return "member [eMail=" + eMail + ", schoolName=" + schoolName
-				+ ", schoolSeq=" + schoolSeq + ", password=" + password
-				+ ", nickName=" + nickName + ", majorName=" + majorName
-				+ ", majorSeq=" + majorSeq + ", memberCode=" + memberCode
-				+ ", studentNumber=" + studentNumber + ", point=" + point
-				+ ", personaconCode=" + personaconCode + "]";
+	public String getRegisterTime() {
+		return registerTime;
 	}
+	public void setRegisterTime(String registerTime) {
+		this.registerTime = registerTime;
+	}
+	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -103,6 +113,7 @@ public class Member implements Serializable {
 		result = prime * result
 				+ ((majorSeq == null) ? 0 : majorSeq.hashCode());
 		result = prime * result + memberCode;
+		result = prime * result + memberNo;
 		result = prime * result
 				+ ((nickName == null) ? 0 : nickName.hashCode());
 		result = prime * result
@@ -110,12 +121,15 @@ public class Member implements Serializable {
 		result = prime * result + personaconCode;
 		result = prime * result + point;
 		result = prime * result
+				+ ((registerTime == null) ? 0 : registerTime.hashCode());
+		result = prime * result
 				+ ((schoolName == null) ? 0 : schoolName.hashCode());
 		result = prime * result
 				+ ((schoolSeq == null) ? 0 : schoolSeq.hashCode());
 		result = prime * result + studentNumber;
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -142,6 +156,8 @@ public class Member implements Serializable {
 			return false;
 		if (memberCode != other.memberCode)
 			return false;
+		if (memberNo != other.memberNo)
+			return false;
 		if (nickName == null) {
 			if (other.nickName != null)
 				return false;
@@ -155,6 +171,11 @@ public class Member implements Serializable {
 		if (personaconCode != other.personaconCode)
 			return false;
 		if (point != other.point)
+			return false;
+		if (registerTime == null) {
+			if (other.registerTime != null)
+				return false;
+		} else if (!registerTime.equals(other.registerTime))
 			return false;
 		if (schoolName == null) {
 			if (other.schoolName != null)
@@ -170,6 +191,58 @@ public class Member implements Serializable {
 			return false;
 		return true;
 	}
+	
+	public Member(int memberNo, String eMail, String schoolName,
+			String schoolSeq, String password, String nickName,
+			String majorName, String majorSeq, int memberCode,
+			int studentNumber, int point, int personaconCode,
+			String registerTime) {
+		super();
+		this.memberNo = memberNo;
+		this.eMail = eMail;
+		this.schoolName = schoolName;
+		this.schoolSeq = schoolSeq;
+		this.password = password;
+		this.nickName = nickName;
+		this.majorName = majorName;
+		this.majorSeq = majorSeq;
+		this.memberCode = memberCode;
+		this.studentNumber = studentNumber;
+		this.point = point;
+		this.personaconCode = personaconCode;
+		this.registerTime = registerTime;
+	}
+
+	public Member(String eMail, String schoolName, String schoolSeq,
+			String password, String nickName, String majorName,
+			String majorSeq, int memberCode, int studentNumber, int point,
+			int personaconCode, String registerTime) {
+		super();
+		this.eMail = eMail;
+		this.schoolName = schoolName;
+		this.schoolSeq = schoolSeq;
+		this.password = password;
+		this.nickName = nickName;
+		this.majorName = majorName;
+		this.majorSeq = majorSeq;
+		this.memberCode = memberCode;
+		this.studentNumber = studentNumber;
+		this.point = point;
+		this.personaconCode = personaconCode;
+		this.registerTime = registerTime;
+	}
+	
+	@Override
+	public String toString() {
+		return "Member [memberNo=" + memberNo + ", eMail=" + eMail
+				+ ", schoolName=" + schoolName + ", schoolSeq=" + schoolSeq
+				+ ", password=" + password + ", nickName=" + nickName
+				+ ", majorName=" + majorName + ", majorSeq=" + majorSeq
+				+ ", memberCode=" + memberCode + ", studentNumber="
+				+ studentNumber + ", point=" + point + ", personaconCode="
+				+ personaconCode + ", registerTime=" + registerTime + "]";
+	}
+
 	public Member(String eMail, String schoolName, String schoolSeq,
 			String password, String nickName, String majorName,
 			String majorSeq, int memberCode, int studentNumber, int point,
@@ -207,6 +280,13 @@ public class Member implements Serializable {
 		super();
 		this.eMail = eMail;
 		this.password = password;
+	}
+
+	public Member(int memberNo, String nickName) {
+		super();
+		
+		this.memberNo = memberNo;
+		this.nickName = nickName;
 	}
 	
 	

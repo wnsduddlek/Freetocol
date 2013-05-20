@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
 
@@ -26,5 +27,28 @@ public class EvaluationDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public void evaluationAdminInsert(int professorCode){
+		try {
+			sqlMapper.insert("evaluationAdminInsert", professorCode);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	
+	public ArrayList<Evaluation> evaluationPerProfessor(int professorCode){
+		ArrayList<Evaluation> evaluationList = new ArrayList<Evaluation>();
+		
+		try {
+			evaluationList = (ArrayList<Evaluation>) sqlMapper.queryForList("evaluationPerProfessor", professorCode);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return evaluationList;
 	}
 }

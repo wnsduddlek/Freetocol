@@ -47,6 +47,10 @@
     <c:set value="${sessionScope.userInfo}" var="session"/>
 	<c:if test="${session.eMail == null}">
 		<jsp:include page="headerNotLogin.jsp" flush="false"/>
+		<jsp:include page="signUp.jsp" flush="false"/>
+ 	</c:if>
+ 	<c:if test="${session.eMail != null && session.memberCode == 0}">
+		<jsp:include page="headerAdminLogin.jsp" flush="false"/>
  	</c:if>
  	<c:if test="${session.eMail != null && session.memberCode == 1}">
 		<jsp:include page="headerLogin.jsp" flush="false"/>
@@ -56,7 +60,7 @@
 		<jsp:include page="headerLogin.jsp" flush="false"/>
  	</c:if>
  	</div>
-	<jsp:include page="signUp.jsp" flush="false"/>
+	
 <div class="container-narrow">
     	<jsp:include page="search.jsp" flush="false"/>
 <div class="tabbable" style="margin-bottom: 18px;">

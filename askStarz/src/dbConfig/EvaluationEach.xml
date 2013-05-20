@@ -60,5 +60,10 @@
   <select id="getListByHappySchool" parameterClass="String" resultMap="EvaluationEachResult">
     	SELECT * FROM evaluation_each WHERE school_seq = #schoolSeq# ORDER BY happy_score DESC
   </select>
+ 
+   <select id="getProfessorByCode" parameterClass="Integer" resultMap="EvaluationEachResult">
+    	SELECT * FROM evaluation_each WHERE professor_code = #professorCode# 
+  </select>
     
+  
 </sqlMap>

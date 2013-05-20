@@ -152,4 +152,18 @@ public class EvaluationEachDAO {
 		return getListHappy;
 	}
 
+	public EvaluationEach getProfessorByCode(int professorCode){
+		EvaluationEach professorByCode = null;
+		
+		try {
+			professorByCode = (EvaluationEach)sqlMapper.queryForObject("getProfessorByCode", professorCode);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return professorByCode;
+	}
+	
+	
 }

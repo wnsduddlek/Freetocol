@@ -14,6 +14,7 @@
        necessary if the columns (or aliases) match to the properties 
        exactly. -->
   <resultMap id="MemberResult" class="Member">
+    <result property="memberNo" column="member_no"/>
     <result property="eMail" column="e_mail"/>
     <result property="schoolName" column="school_name"/>
     <result property="schoolSeq" column="school_seq"/>
@@ -25,6 +26,7 @@
     <result property="studentNumber" column="student_number"/>
     <result property="point" column="point"/>
     <result property="personaconCode" column="personacon_code"/>
+    <result property="registerTime" column="register_time"/>
   </resultMap>
   
   <resultMap id="LoginResult" class="Member">
@@ -33,6 +35,7 @@
     <result property="nickName" column="nick_name"/>
     <result property="memberCode" column="member_code"/>
     <result property="point" column="point"/>
+    <result property="studentNumber" column="student_number"/>
   </resultMap>
 
   <!-- Select with no parameters using the result map for Account class. -->
@@ -43,10 +46,16 @@
   </select>
   
    <select id="sessionInfo" parameterClass="String" resultMap="LoginResult">
-    	SELECT e_mail, password, nick_name, member_code, point
+    	SELECT e_mail, password, nick_name, member_code, point, student_number
     	FROM login 
     	WHERE e_mail = #eMail#
   </select>
+  
+   <select id="memberListAdmin" resultMap="MemberResult">
+    	SELECT *
+    	FROM member
+  </select>
+  
   <insert id="memberInsert" parameterClass="Member">
   		INSERT INTO member(e_mail, school_name, school_seq, password, nick_name, major_name, major_seq, 
   		member_code, student_number, point, personacon_code, register_time)
@@ -54,4 +63,35 @@
     	 #memberCode#, #studentNumber#, #point#, #personaconCode#,
     	SYS_DATETIME) 
   </insert>  
+  <update id="memberSchoolNameUpdate" parameterClass="HashMap">
+  		UPDATE member SET school_name = #schoolName# WHERE member_no=#memberNo#
+  </update>  
+  <update id="memberSchoolSeqUpdate" parameterClass="HashMap">
+  		UPDATE member SET school_seq = #schoolSeq# WHERE member_no=#memberNo#
+  </update>    
+  <update id="memberNickNameUpdate" parameterClass="HashMap">
+  		UPDATE member SET nick_name = #nickName# WHERE member_no=#memberNo#
+  </update>    
+  <update id="memberMajorNameUpdate" parameterClass="HashMap">
+  		UPDATE member SET major_name = #majorName# WHERE member_no=#memberNo#
+  </update>    
+  <update id="memberMajorSeqUpdate" parameterClass="HashMap">
+  		UPDATE member SET major_seq = #majorSeq# WHERE member_no=#memberNo#
+  </update>    
+  <update id="memberMemberCodeUpdate" parameterClass="HashMap">
+  		UPDATE member SET member_code = #memberCode# WHERE member_no=#memberNo#
+  </update>    
+  <update id="memberStudentNumberUpdate" parameterClass="HashMap">
+  		UPDATE member SET student_number = #studentNumber# WHERE member_no=#memberNo#
+  </update>    
+  <update id="memberRegisterTimeUpdate" parameterClass="HashMap">
+  		UPDATE member SET register_time = #registerTime# WHERE member_no=#memberNo#
+  </update>    
+  <update id="memberPointUpdate" parameterClass="HashMap">
+  		UPDATE member SET point = #point# WHERE member_no=#memberNo#
+  </update>    
+  <update id="memberPersonaconCodeUpdate" parameterClass="HashMap">
+  		UPDATE member SET personacon_code = #personaconCode# WHERE member_no=#memberNo#
+  </update>    
+  
 </sqlMap>

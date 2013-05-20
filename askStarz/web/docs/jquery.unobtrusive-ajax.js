@@ -114,7 +114,7 @@
         return !validationInfo || !validationInfo.validate || validationInfo.validate();
     }
 
-    $("a[data-ajax=true]").live("click", function (evt) {
+    $("a[data-ajax=true]").on("click", function (evt) {
         evt.preventDefault();
         asyncRequest(this, {
             url: this.href,

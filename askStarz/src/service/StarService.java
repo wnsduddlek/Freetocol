@@ -1,6 +1,7 @@
 package service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import dao.EvaluationDAO;
 import dao.EvaluationEachDAO;
@@ -160,6 +161,75 @@ public class StarService implements StarServiceIF {
 	public void evaluationInsert(Evaluation evaluation)
 			throws EvaluationException {
 		EvaluationDAO.getInstance().evaluationInsert(evaluation);
+	}
+
+	@Override
+	public EvaluationEach getProfessorByCode(int professorCode)
+			throws EvaluationEachException {
+		EvaluationEach professorByCode = null;
+		
+		professorByCode = EvaluationEachDAO.getInstance().getProfessorByCode(professorCode);
+		
+		
+		return professorByCode;
+	}
+
+	@Override
+	public ArrayList<Evaluation> evaluationPerProfessor(int professorCode)
+			throws EvaluationException {
+		ArrayList<Evaluation> evaluationList = null;
+		
+		evaluationList = EvaluationDAO.getInstance().evaluationPerProfessor(professorCode);
+		return evaluationList;
+	}
+
+	@Override
+	public ArrayList<Professor> professorApproval() throws ProfessorException {
+		ArrayList<Professor> professorApprovalList = null;
+		
+		professorApprovalList = ProfessorDAO.getInstance().professorApproval();
+		
+		
+		return professorApprovalList;
+	}
+
+	@Override
+	public void professorApprovalUpdate(int professorCode)
+			throws ProfessorException {
+		ProfessorDAO.getInstance().professorApprovalUpdate(professorCode);
+	}
+
+	@Override
+	public void evaluationAdminInsert(int professorCode)
+			throws EvaluationException {
+		EvaluationDAO.getInstance().evaluationAdminInsert(professorCode);	
+	}
+
+	@Override
+	public ArrayList<Member> memberListAdmin() throws MemberException {
+		ArrayList<Member> memberList = MemberDAO.getInstance().memberListAdmin();
+		return memberList;
+	}
+
+	@Override
+	public void memberUpdate(String check, HashMap<String, Object> memberList)
+			throws MemberException {
+		MemberDAO.getInstance().memberUpdate(check, memberList);
+	}
+
+	@Override
+	public ArrayList<Professor> professorListAdmin() throws ProfessorException {
+		ArrayList<Professor> professorList = null;
+		
+		professorList = ProfessorDAO.getInstance().professorListAdmin();
+		
+		return professorList;
+	}
+
+	@Override
+	public void professorUpdate(Professor professor) throws ProfessorException {
+		
+		ProfessorDAO.getInstance().professorUpdate(professor);
 	}
 
 }
